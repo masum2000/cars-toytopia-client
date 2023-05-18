@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const handleLogin = event => {
+    event.preventDefault();
+    }
     return (
         <div>
         {/* <ToastContainer
@@ -24,7 +27,7 @@ const Login = () => {
               </div>
               <div className="md:w-1/2 w-full ">
                   <div className="card flex-shrink-0 w-full">
-                      <form  className="card-body">
+                      <form onSubmit={handleLogin}  className="card-body">
                           <div className="form-control ">
                               <label className="label">
                                   <span className="label-text text-lg">Email</span>
@@ -39,7 +42,7 @@ const Login = () => {
                                   <span className="label-text text-lg">Password</span>
                               </label>
                               <div className='indicator w-full flex-col'>
-<span className="indicator-item badge bg-orange-500 border-none">Required</span>
+                               <span className="indicator-item badge bg-orange-500 border-none">Required</span>
                               <input type="password" name='password' placeholder="Password" className="input input-bordered" required />
                               </div>
                               

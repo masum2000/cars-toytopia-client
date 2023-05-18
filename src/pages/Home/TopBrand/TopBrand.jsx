@@ -4,7 +4,7 @@ const TopBrand = () => {
     return (
         <div className='w-10/12 container mx-auto'>
             <h2 className='text-3xl md:text-6xl font-bold text-orange-600 text-center'>Shop Our Top Car Brands</h2>
-            <div className='grid grid-cols-4 space-y-5 mt-6'>
+            <div className='grid md:grid-cols-4 grid-cols-2 space-y-5 mt-6'>
                 <div className='col-span-1 flex items-center justify-center'>
                     <img src="https://i.ibb.co/WDTXrSQ/10008.jpg" alt="placeholder" className=" object-cover rounded-lg cursor-pointer" />
                 </div>

@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <div>
-            <div className="container w-10/12 mx-auto py-8">
+            <div className="container w-10/12 mx-auto py-8 md:mt-10">
                 <div className="grid grid-cols-1   md:grid-cols-2 gap-8 items-center ">
                     <div className='text-center'>
                         <h2 className="text-orange-600 md:text-6xl text-3xl font-bold mb-4">About Us</h2>
