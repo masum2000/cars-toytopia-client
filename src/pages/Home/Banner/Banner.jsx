@@ -28,7 +28,7 @@ const Banner = () => {
             <div id="slide1" className="carousel-item relative w-full">
                 <img src="https://i.ibb.co/MSQw6Dc/banner-1-1.jpg" className="w-full " />
                 <div className="  absolute h-full flex items-center  left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
-                    <div className='text-white md:space-y-12 md:pl-24 w-10/12 pl-2'>
+                    <div className='text-white md:space-y-12 md:pl-24 md:w-1/2 w-full pl-2'>
                         <h2 className='  text-xl md:text-6xl font-bold mb-4'>Welcome to <span className='text-orange-600'>Cars ToyTopia</span> </h2>
                         <Marquee>
                         <p className="text-sm mb-4 md:text-2xl">Rev up your imagination with our captivating collection of Cars ToyTopia: Unleash the Joy of Playtime.....!</p>

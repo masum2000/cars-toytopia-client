@@ -62,7 +62,7 @@ const Login = () => {
                                   </button>
                               </div>
                       <div>
-                          <p className='text-sm'>New to <span className='font-semibold text-orange-500'>Cars ToyTopi</span> ?<Link to="/signup"><button className="btn btn-active btn-link normal-case text-sm text-sky-700 ">Registration Here</button>
+                          <p className='text-sm'>New to <span className='font-semibold text-orange-500'>Cars ToyTopia</span> ?<Link to="/signup"><button className="btn btn-active btn-link normal-case text-sm text-sky-700 ">Registration Here</button>
                           </Link></p>
                       </div>
                           </div>
