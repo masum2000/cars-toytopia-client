@@ -28,7 +28,7 @@ const Gallery = () => {
                 <div className='text-center space-y-4'>
                     <h2 className="text-orange-600  text-3xl font-bold md:text-6xl  mb-8">Gallery</h2>
                     <div>
-                        <h2 className='text-xl md:text-4xl mb-6'>Our All Latest  Toys Are Here!</h2>
+                        <p className=' mb-6'>"Welcome to our Gallery section, where you can immerse yourself in a world of captivating car toys. Explore a collection of stunning images showcasing a wide variety of cars, from sleek sports cars to rugged off-road vehicles. Get inspired by the intricate details and vibrant colors of these miniature wonders, igniting your passion for the world of cars."</p>
                     </div>
                     <button className="border-2  border-orange-600 text-black p-1 rounded-lg bg-none font-bold   hover:bg-orange-600 duration-300 hover:text-white ">Show All</button>
                 </div>

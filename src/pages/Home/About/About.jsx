@@ -12,7 +12,7 @@ const About = () => {
                         </p>
                         <button className="border-2 border-orange-600 text-black p-1 rounded-lg bg-none font-bold   hover:bg-orange-600 duration-300 hover:text-white ">More Details</button>
                     </div>
-                    <div>
+                    <div className='bg-orange-100 rounded-lg'>
                         <img src="https://i.ibb.co/WvYqR7S/banner1-removebg-preview.png" alt="About Us" className="w-full " />
                     </div>
                 </div>
