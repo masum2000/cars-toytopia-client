@@ -58,7 +58,8 @@ const Navbar = () => {
                                 </li>
                             </ul>
                         </div>
-                        <Link className="md:w-3/12 w-8/12" to="https://delizioso-resturent.web.app/"><img src="https://i.ibb.co/2gytMjj/logo.png" /></Link>
+                        <Link className="md:w-3/12 w-8/12" to="https://delizioso-resturent.web.app/"><img className='h-12' src="https://i.ibb.co/HYyvRpC/Smile-emovebg-preview.png" /></Link>
+                        <h2 className='text-white md:text-3xl font-bold '>Cars ToyTopia</h2>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -74,8 +75,18 @@ const Navbar = () => {
                             </>
                             <>
                                 <NavLink
+                                    exact
+                                    to="/"
+                                    className="normal-case text-xl  px-6 py-1 text-white"
+                                    activeClassName="active"
+                                >
+                                    All Toys
+                                </NavLink>
+                            </>
+                            <>
+                                <NavLink
                                     to="/blog"
-className="normal-case text-xl  px-6 py-1 text-white"
+                                     className="normal-case text-xl  px-6 py-1 text-white"
                                     activeClassName="active"
                                 >
                                     Blog
