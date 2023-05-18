@@ -152,7 +152,7 @@ const Navbar = () => {
                 <NavLink className="">All Toys</NavLink>
                 <NavLink className="">My Toys</NavLink>
                 <NavLink className="">Add a Toy</NavLink>
-                <NavLink className="">Blog</NavLink>
+                <NavLink to="/blog" className="">Blog</NavLink>
                 
               </ul>
             </div>
