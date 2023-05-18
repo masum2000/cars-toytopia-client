@@ -13,6 +13,8 @@ const Banner = () => {
         //                         <Marquee>
         //                         <h1 className="mb-10 md:text-2xl lg:text-3xl text-2xl   ">Rev up your imagination with our captivating collection of Cars ToyTopia: Unleash the Joy of Playtime.....!</h1>
         //                         </Marquee>
+
+        // 
         //                 </div>
         //                 <div className=' md:w-4/6 mx-auto'>
         //                     <p className="mb-10">We provide the best culinary services in Bangladesh. Our world-class chefs use only the freshest ingredients to create delicious and healthy meals that cater to all tastes and preferences.</p>
@@ -24,7 +26,7 @@ const Banner = () => {
         // </div>
         <div className="carousel w-full  ">
             <div id="slide1" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/x7JGGBk/banner4-2.jpg" className="w-full " />
+                <img src="https://i.ibb.co/MSQw6Dc/banner-1-1.jpg" className="w-full " />
                 <div className="  absolute h-full flex items-center  left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
                     <div className='text-white md:space-y-12 md:pl-24 w-10/12 pl-2'>
                         <h2 className='  text-xl md:text-6xl font-bold mb-4'>Welcome to <span className='text-orange-600'>Cars ToyTopia</span> </h2>
@@ -33,12 +35,12 @@ const Banner = () => {
                         </Marquee>
                         <div>
                             <button className="  bg-orange-600 hover:bg-white hover:text-black font-bold px-2 py-1 rounded-md  ">All Toys</button>
-                            <button className=" border hover:bg-orange-600  px-2 py-1 rounded-md font-bold md:ml-6 ">More Details</button>
+                            <button className=" border hover:bg-orange-600  px-2 py-1 rounded-md font-bold ml-3 md:ml-6 ">More Details</button>
                         </div>
                     </div>
                 </div>
                 <div className='absolute flex justify-end transform pr-2 -translate-y-1/2 left-5 right-0 bottom-0'>
-                    <a href="#slide3" className="text-white p-2 bg-orange-600 rounded mr-5"><FaArrowLeft /></a>
+                    <a href="#slide3" className="text-white  ml-3 p-2 bg-orange-600 rounded mr-5"><FaArrowLeft /></a>
                     <a href="#slide2" className="text-white p-2 bg-orange-600 rounded"><FaArrowRight /></a>
                 </div>
             </div>
@@ -52,7 +54,7 @@ const Banner = () => {
                         </Marquee>
                         <div>
                             <button className="  bg-orange-600 hover:bg-white hover:text-black font-bold px-2 py-1 rounded-md  ">All Toys</button>
-                            <button className=" border hover:bg-orange-600  px-2 py-1 rounded-md font-bold md:ml-6 ">More Details</button>
+                            <button className=" border hover:bg-orange-600  px-2 py-1 rounded-md font-bold ml-3  md:ml-6 ">More Details</button>
                         </div>
                     </div>
                 </div>
@@ -62,7 +64,7 @@ const Banner = () => {
                 </div>
             </div>
             <div id="slide3" className="carousel-item relative w-full">
-                <img src="https://i.ibb.co/MSQw6Dc/banner-1-1.jpg" className="w-full " />
+                <img src="https://i.ibb.co/x7JGGBk/banner4-2.jpg" className="w-full " />
                 <div className="  absolute h-full flex items-center  left-0 top-0  bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
                     <div className='text-white md:space-y-12 md:pl-24 w-10/12 pl-2'>
                         <h2 className='  text-xl md:text-6xl font-bold mb-4'>Welcome to <span className='text-orange-600'>Cars ToyTopia</span> </h2>
@@ -71,7 +73,7 @@ const Banner = () => {
                         </Marquee>
                         <div>
                             <button className="  bg-orange-600 hover:bg-white hover:text-black font-bold px-2 py-1 rounded-md  ">All Toys</button>
-                            <button className=" border hover:bg-orange-600  px-2 py-1 rounded-md font-bold md:ml-6 ">More Details</button>
+                            <button className=" border hover:bg-orange-600  px-2 py-1 rounded-md font-bold ml-3 md:ml-6 ">More Details</button>
                         </div>
                     </div>
                 </div>
