@@ -1,7 +1,35 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
 
+import { Link, NavLink } from 'react-router-dom';
+import app from '../../../firebase/firebase.config';
+import { getAuth } from 'firebase/auth';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../../Provider/AuthProvider';
+
+const auth =getAuth(app)
 const Navbar = () => {
+
+
+  const [photoURL, setPhotoURL] = useState('');
+    const [displayName, setDisplayName] = useState('');
+    const { user, setUser } = useContext(AuthContext)
+
+    useEffect(() => {
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+          if (user) {
+              setUser(user);
+              setDisplayName(user.displayName);
+              setPhotoURL(user.photoURL);
+          } else {
+              setUser(null);
+              setDisplayName('');
+              setPhotoURL('');
+          }
+      });
+      return () => {
+          unsubscribe();
+      };
+  }, []);
+
     return (
         // <div>
         //     {/* navbar  */}
@@ -170,29 +198,29 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="navbar-end">
-                   
+                   {user ?(
                         <>
                             <div className="mr-10">
                                 <div className="group relative flex justify-center ">
                                     
-                                        <img className=" h-10 w-10 rounded-full" src='https://i.ibb.co/JdM2X7t/user.jpg' alt='' />
+                                        <img className=" h-10 w-10 rounded-full" src={photoURL} alt={displayName} />
                                     
                                     <span className="absolute top-10 scale-0 rounded bg-gray-800 p-2 text-xs text-white group-hover:scale-100">
-                                        
+                                        {displayName}
                                     </span>
                                 </div>
                             </div>
                             <div className=''>
-                            <button  className=" p-1 mr-3  text-white font-normal md:font-bold rounded-md ">
+                            <button onClick={()=> auth.signOut()} className=" p-1 mr-3  text-white font-normal md:font-bold rounded-md ">
                                 Logout
                             </button>
                             </div>
                         </>
-                    
+                   ) : (
                         <NavLink to="/login" activeClassName="bg-purple-500">
                             <button className=" p-1 text-white rounded-md font-normal md:font-bold ">Login</button>
                         </NavLink>
-                    
+                   )}
                 </div>
         </div>
       </div>

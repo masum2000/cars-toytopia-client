@@ -1,10 +1,77 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
+
+ 
+    const { signIn } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
+    const auth = getAuth(app)
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const [user, setUser] = useState(null);
+
     const handleLogin = event => {
     event.preventDefault();
+    const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password);
+
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                // console.log(loggedUser);
+                // toast.success('Login successful');
+                setUser(loggedUser);
+                form.reset();
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+                toast.error(error.message);
+            });
+    };
+
+
+    const handleGoogleSignIn = (event) => {
+        event.preventDefault();
+        // console.log('hello from google');
+        signInWithPopup(auth, googleProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser)
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log('error', error.message);
+            })
     }
+
+
+    const handleGithubSignIn = event => {
+        event.preventDefault();
+        signInWithPopup(auth, githubProvider)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setUser(loggedUser);
+                navigate(from, { replace: true })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+
     return (
         <div>
         {/* <ToastContainer
@@ -56,10 +123,10 @@ const Login = () => {
                           <div className='text-center  mt-6'>
                               <p className='text-lg  divider '>Or Connect With</p>
                               <div className='my-4'>
-                                  <button  className='px-4'>
+                                  <button onClick={handleGoogleSignIn}  className='px-4'>
                                       <img className='w-10' src="https://i.ibb.co/ftwyb00/Google-G-Logo-svg.png" alt="" />
                                   </button>
-                                  <button  className='px-4'>
+                                  <button onClick={handleGithubSignIn}  className='px-4'>
                                       <img className='w-10' src="https://i.ibb.co/VxKN3Mg/github.png" alt="" />
 
                                   </button>
