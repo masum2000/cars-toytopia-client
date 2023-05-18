@@ -8,23 +8,36 @@ const Blog = () => {
                 <div>
                     <div className='md:w-10/12 mx-auto md:my-16'>
                         <div className='md:py-6'>
-                            <h1 className='text-orange-500 text-3xl'>
-                            What is an access token and refresh token? How do they work and where should we store them on the client-side?</h1>
-                            <p className='md:py-4'>An uncontrolled component is one that manages its own state internally, without any external intervention or control. The component's state is completely encapsulated within the component, and any updates or changes to its state are managed by the component itself. Uncontrolled components are often used in simple, stateless UI elements that don't require complex state management.On the other hand, a controlled component is one that has its state managed by an external source, such as a parent component or a state management library like Redux. The component's state is passed down to it as props, and any updates to the state are managed externally, through callbacks or other mechanisms. Controlled components are often used in complex UI elements that require more advanced state management, such as forms, dropdowns, and other interactive widgets.</p>
+                            <h1 className='text-orange-500 text-3xl'>Question1:  What is an access token and refresh token? How do they work and where should we store them on the client-side?</h1>
+                            <p className='md:py-4'><span className='font-bold'>Access Token: </span> An access token is a credential that represents the authorization granted to a user. It typically has a limited lifespan and is used to access protected resources or perform authenticated actions on behalf of the user. Access tokens are commonly used in stateless authentication systems like JSON Web Tokens (JWTs). They are usually included in the headers or requests to the server for authorization.</p><br />
+                            <p><span className='font-bold'>Refresh Token: </span> A refresh token is a long-lived credential that is used to obtain a new access token when the current access token expires. It is typically issued alongside the access token during the authentication process. When the access token expires, the refresh token is sent to the server to request a new access token without requiring the user to log in again. Refresh tokens are more secure as they are long-lived and can be revoked if needed.</p>
                         </div>
                         <div className='md:py-3'>
-                            <h1 className='text-orange-500 text-3xl'>
-
-                            Compare SQL and NoSQL databases?</h1>
-                            <p className='md:py-4'>To validate React props using PropTypes, you first need to import PropTypes from the 'prop-types' library at the top of your file. Next, you can define propTypes for a component by adding a propTypes property to the component function or class. The propTypes property is an object that specifies the name and type of each prop you want to validate. You can use the PropTypes library to specify the type of each prop. There are a number of different PropTypes validators available, including PropTypes.string, PropTypes.number, PropTypes.bool, and PropTypes.object. If you want to mark a prop as required, you can append .isRequired to the end of the prop type. If a required prop is not passed to the component, a warning will be logged to the console. Once you have defined the propTypes for your component, React will automatically validate the props that are passed to the component. If a prop has the wrong type or is missing a required prop, a warning will be logged to the console. By using PropTypes to validate the props for your components, you can catch errors early and ensure that your components are being used correctly.</p>
+                            <h1 className='text-orange-500 text-3xl'>Question2: Compare SQL and NoSQL databases?</h1>
+                            <p className='md:py-4'><span className='font-bold'>SQL Databases: </span>
+                                (i) Structure: SQL databases use a structured data model based on tables with predefined schemas. Data is organized into rows and columns, and relationships between tables are established using keys (primary and foreign keys).
+                                (ii) Schema: SQL databases have a fixed schema, meaning the structure of the data must be defined before data insertion. Altering the schema can be complex and may require modifying existing data.
+                                (iii) Query Language: SQL databases use the SQL query language for defining and manipulating the data. SQL provides a standardized way to retrieve, insert, update, and delete data.</p><br />
+                            <p>
+                                <span className='font-bold'>NoSQL Databases: </span>
+                                (i)Structure: NoSQL databases use various data models, such as key-value, document, columnar, or graph-based. They offer flexible schemas, allowing dynamic and unstructured data storage.
+                                (ii)Schema: NoSQL databases are schema-less, allowing developers to add new fields or change the structure of data on the fly without affecting existing data.
+                                (iii)Query Language: NoSQL databases often provide query interfaces specific to their data model. While some support SQL-like querying, others use custom APIs or object-oriented approaches.
+                            </p>
                         </div>
                         <div className='md:py-3'>
                             <h1 className='text-orange-500 text-3xl'>What is express js? What is Nest JS ?</h1>
-                            <p className='md:py-4'>"Node.js is a runtime environment that allows you to run JavaScript code on the server-side. It provides an event-driven, non-blocking I/O model that makes it lightweight and efficient for building scalable network applications. Node.js includes built-in modules such as HTTP, HTTPS, File System, and others that allow you to build server-side applications using JavaScript.Express.js, on the other hand, is a popular web framework built on top of Node.js that provides a set of features and tools for building web applications and APIs. It simplifies the process of creating server-side applications by providing a set of abstractions and features for handling HTTP requests and responses, routing, middleware, and more. Express.js is built on top of Node.js and provides a higher level of abstraction, making it easier to create web applications using Node.js</p>
+                            <p className='md:py-4'><span className='font-bold'>Express JS: </span>Express.js is a popular web application framework for Node.js, a JavaScript runtime environment. It provides a robust set of features and tools for building web applications and APIs. </p><br></br>
+                            <p><span className='font-bold'>Nest JS: </span> NestJS is a progressive, efficient, and extensible framework for building scalable and maintainable server-side applications. It is built with TypeScript and uses modern JavaScript features to provide a structured and robust development environment.</p>
                         </div>
                         <div className='md:py-6'>
                             <h1 className='text-orange-500 text-3xl'>What is MongoDB aggregate and how does it work?</h1>
-                            <p className='md:py-4'>A custom hook is a JavaScript function that allows you to reuse stateful logic across multiple React components. Custom hooks are a way to extract logic from components so that it can be reused across your application.You might create a custom hook to solve a specific problem or provide a specific functionality that is not provided by React out of the box. For example, you might create a custom hook that manages the state of a form, or a custom hook that handles authentication logic.ustom hooks allow you to abstract away complex logic and provide a clean, reusable interface for other components to consume. They can help reduce the amount of code you need to write and make your code more modular and easier to maintain.Custom hooks follow a specific naming convention, which is to prefix the name of the hook with 'use'. This naming convention is important because it signals to other developers that the function is a hook and should be used accordingly.</p>
+                            <p className='md:py-4'>In MongoDB, the aggregate framework is a powerful tool for performing advanced data analysis and manipulation operations on collections. It allows you to process data using a pipeline of stages, where each stage performs a specific operation on the input data and passes the results to the next stage.</p><br />
+                            <p>Here's how the MongoDB aggregate framework works:</p><br />
+                            <p><span className='font-bold'>(i) </span>Pipeline Stages: The aggregate pipeline consists of one or more stages, each responsible for performing a specific operation on the data. Common stages include $match, $group, $sort, $project, $limit, $skip, and many more. These stages are combined in a specific order to transform and analyze the data.
+                            </p><br/>
+                            <p><span className='font-bold'>(ii)</span>Data Processing: Each stage in the pipeline takes the input documents, processes them according to the specified operation, and produces output documents. The output of one stage becomes the input for the next stage, creating a chain of data transformations.
+                            </p>
                         </div>
                     </div>
 
@@ -32,7 +45,7 @@ const Blog = () => {
 
 
 
-        </div>
+            </div>
         </div>
     );
 };
