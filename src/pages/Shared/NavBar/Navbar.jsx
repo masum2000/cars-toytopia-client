@@ -175,7 +175,7 @@ const Navbar = () => {
               <label tabIndex={0} className="lg:hidden ">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
               </label>
-              <ul tabIndex={0} className="menu menu-compact dropdown-content font-bold space-y-3 mt-8 p-2 shadow text-orange-600 bg-gray-100 rounded-box w-52">
+              <ul tabIndex={0} className="menu menu-compact dropdown-content  font-bold space-y-3 mt-8 p-2 shadow text-white bg-orange-600 rounded-box w-52">
                 <NavLink className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Home</NavLink>
                 <NavLink to='/alltoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">All Toys</NavLink>
                 <NavLink to='/mytoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">My Toys</NavLink>
@@ -226,7 +226,7 @@ const Navbar = () => {
                         </>
                    ) : (
                         <NavLink to="/login" activeClassName="bg-purple-500">
-                            <button className=" p-1 text-white rounded-md font-normal md:font-bold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
+                            <button className="  text-white rounded-md font-normal md:font-bold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
                    )}
                 </div>
