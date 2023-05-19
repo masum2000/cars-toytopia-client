@@ -20,6 +20,19 @@ const AddaToy = () => {
        const description = form.description.value;
        const newToy = {name, sellerName, sellerEmail,subCategory, subCategoryId, quantity,price, photo, rating, description}
        console.log(newToy);
+
+    //    send data to the server
+    fetch('http://localhost:5000/toy', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(newToy)
+    })
+    .then(res => res.json())
+    .then(data =>{
+        console.log(data);
+    })
     }
 
     return (
