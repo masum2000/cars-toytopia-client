@@ -1,9 +1,10 @@
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
-import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import {  GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 import { toast } from 'react-hot-toast';
+import { ToastContainer } from 'react-toastify';
 
 const Login = () => {
 
@@ -14,7 +15,7 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
     const auth = getAuth(app)
     const googleProvider = new GoogleAuthProvider();
-    const githubProvider = new GithubAuthProvider();
+    // const githubProvider = new GithubAuthProvider();
 
     const [user, setUser] = useState(null);
 
@@ -31,6 +32,8 @@ const Login = () => {
                 // console.log(loggedUser);
                 // toast.success('Login successful');
                 setUser(loggedUser);
+                alert('User logged successfully')
+                // toast.success('Login successful');
                 form.reset();
                 navigate(from, { replace: true })
             })
@@ -50,6 +53,7 @@ const Login = () => {
                 console.log(loggedUser);
                 setUser(loggedUser)
                 navigate(from, { replace: true })
+                alert('User logged successfully')
             })
             .catch(error => {
                 console.log('error', error.message);
@@ -57,24 +61,24 @@ const Login = () => {
     }
 
 
-    const handleGithubSignIn = event => {
-        event.preventDefault();
-        signInWithPopup(auth, githubProvider)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                setUser(loggedUser);
-                navigate(from, { replace: true })
-            })
-            .catch(error => {
-                console.log(error);
-            })
-    }
+    // const handleGithubSignIn = event => {
+    //     event.preventDefault();
+    //     signInWithPopup(auth, githubProvider)
+    //         .then(result => {
+    //             const loggedUser = result.user;
+    //             console.log(loggedUser);
+    //             setUser(loggedUser);
+    //             navigate(from, { replace: true })
+    //         })
+    //         .catch(error => {
+    //             console.log(error);
+    //         })
+    // }
 
 
     return (
         <div>
-        {/* <ToastContainer
+        <ToastContainer
           position="top-right"
           autoClose={2000}
           hideProgressBar={false}
@@ -85,7 +89,8 @@ const Login = () => {
           draggable
           pauseOnHover
           theme="dark"
-      /> */}
+      />
+      
       <div className='my-16 md:my-20 md:w-10/12 w-11/12 mx-auto'>
           <div className="container mx-auto lg:flex lg:flex-row items-center md:p-16 py-8 rounded-3xl  shadow-2xl">
               <div className="md:w-1/2">
@@ -126,10 +131,10 @@ const Login = () => {
                                   <button onClick={handleGoogleSignIn}  className='px-4'>
                                       <img className='w-10' src="https://i.ibb.co/ftwyb00/Google-G-Logo-svg.png" alt="" />
                                   </button>
-                                  <button onClick={handleGithubSignIn}  className='px-4'>
+                                  {/* <button onClick={handleGithubSignIn}  className='px-4'>
                                       <img className='w-10' src="https://i.ibb.co/VxKN3Mg/github.png" alt="" />
 
-                                  </button>
+                                  </button> */}
                               </div>
                       <div>
                           <p className='text-sm'>New to <span className='font-semibold text-orange-500'>Cars ToyTopia</span> ?<Link to="/signup"><button className="btn btn-active btn-link normal-case text-sm text-sky-700 ">Registration Here</button>

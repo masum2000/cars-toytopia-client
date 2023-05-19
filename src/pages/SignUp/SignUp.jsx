@@ -1,14 +1,18 @@
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getAuth } from 'firebase/auth'
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { signOut, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import { ToastContainer } from 'react-toastify';
 
 const auth = getAuth(app)
 const SignUp = () => {
     const { createUser } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
 
 
     const handleSignUp = event => {
@@ -31,10 +35,12 @@ const SignUp = () => {
  
         createUser(email, password)
         .then(result =>{
-            const user = result.user;
-            console.log(user);
+            const loggedUser = result.user;
+            alert('Registration Successful');
+            navigate(from, { replace: true })
+            console.log(loggedUser);
             event.target.reset();
-                toast.success('Registration Successful');
+                
                 updateUserData(result.user, name, photo);
 
                 signOut(auth)
@@ -46,11 +52,12 @@ const SignUp = () => {
                 });
 
         })
-        .then(error => console.log(error))
-        toast.error('Registration Failed');
+        .catch(error =>{ 
+            console.log(error);
+            toast.error('Registration Failed');
 
-        }
-
+        });
+    };
 
         const updateUserData = (user, name, photo) => {
             updateProfile(user, {
@@ -65,7 +72,7 @@ const SignUp = () => {
         }
     return (
         <div>
-            {/* <ToastContainer
+            <ToastContainer
                 position="top-right"
                 autoClose={2000}
                 hideProgressBar={false}
@@ -76,7 +83,7 @@ const SignUp = () => {
                 draggable
                 pauseOnHover
                 theme="dark"
-            /> */}
+            />
         <div className='my-16 md:my-20 md:w-10/12 w-11/12 mx-auto'>
             <div className="container mx-auto lg:flex lg:flex-row items-center md:p-16 py-8 rounded-3xl  shadow-2xl">
                 <div className="md:w-1/2 w-full  ">
@@ -104,7 +111,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text text-lg">photo Url</span>
                                 </label>
-                                <input type="text" name='photo' placeholder="Your Photo" className="input input-bordered"  />
+                                <input type="url" name='photo' placeholder="Your Photo" className="input input-bordered"  />
                             </div>
                             <div className="mt-6 form-control">
                                  <button className="border border-orange-500 hover:bg-orange-500 px-10 hover:text-white text-orange-500 font-bold text-lg py-2 rounded-lg shadow duration-300">Register</button>

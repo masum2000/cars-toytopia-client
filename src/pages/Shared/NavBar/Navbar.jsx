@@ -177,9 +177,9 @@ const Navbar = () => {
               </label>
               <ul tabIndex={0} className="menu menu-compact dropdown-content font-bold space-y-3 mt-8 p-2 shadow text-orange-600 bg-gray-100 rounded-box w-52">
                 <NavLink className="">Home</NavLink>
-                <NavLink className="">All Toys</NavLink>
-                <NavLink className="">My Toys</NavLink>
-                <NavLink className="">Add a Toy</NavLink>
+                <NavLink to='/alltoy' className="">All Toys</NavLink>
+                <NavLink to='/mytoy' className="">My Toys</NavLink>
+                <NavLink to='/addtoy' className="">Add a Toy</NavLink>
                 <NavLink to="/blog" className="">Blog</NavLink>
                 
               </ul>
@@ -189,11 +189,20 @@ const Navbar = () => {
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 font-bold space-x-8">
-              <NavLink className="text-white"> Home</NavLink>
-              <NavLink className="text-white"> All Toys</NavLink>
-              <NavLink className="text-white"> My Toys</NavLink>
-              <NavLink className="text-white"> Add a Toys</NavLink>
-              <NavLink to="/blog" className="text-white"> Blog</NavLink>
+          { user ? <div className="menu menu-horizontal px-1 font-bold space-x-8">
+          <NavLink className="text-white"> Home</NavLink>
+          <NavLink to='/alltoy' className="text-white"> All Toys</NavLink>
+          <NavLink to='/mytoy' className="text-white"> My Toys</NavLink>
+          <NavLink to='/addtoy' className="text-white"> Add a Toys</NavLink>
+          <NavLink to="/blog" className="text-white"> Blog</NavLink>
+          </div> :
+          <div className="menu menu-horizontal px-1 font-bold space-x-8">
+          <NavLink className="text-white"> Home</NavLink>
+          <NavLink to='/alltoy' className="text-white"> All Toys</NavLink>
+          
+          <NavLink to="/blog" className="text-white"> Blog</NavLink>
+          </div>
+          }
               
             </ul>
           </div>
