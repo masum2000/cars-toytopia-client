@@ -6,6 +6,8 @@ import { toast } from 'react-hot-toast';
 import { signOut, updateProfile } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 import { ToastContainer } from 'react-toastify';
+import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const auth = getAuth(app)
 const SignUp = () => {
@@ -36,7 +38,12 @@ const SignUp = () => {
         createUser(email, password)
         .then(result =>{
             const loggedUser = result.user;
-            alert('Registration Successful');
+            Swal.fire({
+                title: 'Registration Successful!',
+                text: 'Welcome to Cars ToyTopia',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
             navigate(from, { replace: true })
             console.log(loggedUser);
             event.target.reset();
@@ -72,6 +79,10 @@ const SignUp = () => {
         }
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Cars ToyTopia/SignUp</title>
+            </Helmet>
             <ToastContainer
                 position="top-right"
                 autoClose={2000}

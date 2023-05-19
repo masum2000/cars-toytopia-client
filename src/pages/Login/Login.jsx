@@ -5,6 +5,8 @@ import {  GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 import { toast } from 'react-hot-toast';
 import { ToastContainer } from 'react-toastify';
+import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
@@ -32,14 +34,19 @@ const Login = () => {
                 // console.log(loggedUser);
                 // toast.success('Login successful');
                 setUser(loggedUser);
-                alert('User logged successfully')
+                Swal.fire({
+                    title: 'Logged in Successful!',
+                    text: 'Welcome to Cars ToyTopia',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
                 // toast.success('Login successful');
                 form.reset();
                 navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error);
-                toast.error(error.message);
+                alert(error.message);
             });
     };
 
@@ -78,6 +85,10 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Cars ToyTopia/Login</title>
+            </Helmet>
         <ToastContainer
           position="top-right"
           autoClose={2000}

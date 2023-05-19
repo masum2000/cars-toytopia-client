@@ -176,11 +176,11 @@ const Navbar = () => {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
               </label>
               <ul tabIndex={0} className="menu menu-compact dropdown-content font-bold space-y-3 mt-8 p-2 shadow text-orange-600 bg-gray-100 rounded-box w-52">
-                <NavLink className="">Home</NavLink>
-                <NavLink to='/alltoy' className="">All Toys</NavLink>
-                <NavLink to='/mytoy' className="">My Toys</NavLink>
-                <NavLink to='/addtoy' className="">Add a Toy</NavLink>
-                <NavLink to="/blog" className="">Blog</NavLink>
+                <NavLink className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Home</NavLink>
+                <NavLink to='/alltoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">All Toys</NavLink>
+                <NavLink to='/mytoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">My Toys</NavLink>
+                <NavLink to='/addtoy' className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Add a Toy</NavLink>
+                <NavLink to="/blog" className="hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Blog</NavLink>
                 
               </ul>
             </div>
@@ -190,17 +190,16 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 font-bold space-x-8">
           { user ? <div className="menu menu-horizontal px-1 font-bold space-x-8">
-          <NavLink className="text-white"> Home</NavLink>
-          <NavLink to='/alltoy' className="text-white"> All Toys</NavLink>
-          <NavLink to='/mytoy' className="text-white"> My Toys</NavLink>
-          <NavLink to='/addtoy' className="text-white"> Add a Toys</NavLink>
-          <NavLink to="/blog" className="text-white"> Blog</NavLink>
+          <NavLink className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
+          <NavLink to='/alltoy' className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> All Toys</NavLink>
+          <NavLink to='/mytoy' className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> My Toys</NavLink>
+          <NavLink to='/addtoy' className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Add a Toys</NavLink>
+          <NavLink to="/blog" className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Blog</NavLink>
           </div> :
           <div className="menu menu-horizontal px-1 font-bold space-x-8">
-          <NavLink className="text-white"> Home</NavLink>
-          <NavLink to='/alltoy' className="text-white"> All Toys</NavLink>
-          
-          <NavLink to="/blog" className="text-white"> Blog</NavLink>
+          <NavLink className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Home</NavLink>
+          <NavLink to='/alltoy' className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> All Toys</NavLink>
+          <NavLink to="/blog" className="text-white hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1"> Blog</NavLink>
           </div>
           }
               
@@ -220,14 +219,14 @@ const Navbar = () => {
                                 </div>
                             </div>
                             <div className=''>
-                            <button onClick={()=> auth.signOut()} className=" p-1 mr-3  text-white font-normal md:font-bold rounded-md ">
+                            <button onClick={()=> auth.signOut()} className=" p-1 mr-3  text-white font-normal md:font-bold rounded-md hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">
                                 Logout
                             </button>
                             </div>
                         </>
                    ) : (
                         <NavLink to="/login" activeClassName="bg-purple-500">
-                            <button className=" p-1 text-white rounded-md font-normal md:font-bold ">Login</button>
+                            <button className=" p-1 text-white rounded-md font-normal md:font-bold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
                    )}
                 </div>

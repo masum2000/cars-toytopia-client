@@ -1,9 +1,14 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 const ErrorPage = () => {
     return (
         <section className='flex flex-col items-center justify-center h-screen p-16 bg-white text-gray-900'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Cars ToyTopia/Error</title>
+            </Helmet>
             <img className='md:w-2/6' src='https://i.ibb.co/R0ypWm8/5156002-2696450.jpg' />
             <Link
                 to='/'
