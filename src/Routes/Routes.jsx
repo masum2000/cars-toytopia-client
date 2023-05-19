@@ -34,7 +34,8 @@ import PrivateRoutes from "./PrivateRoutes";
         },
         {
           path: 'alltoy',
-          element: <AllToy></AllToy>
+          element: <AllToy></AllToy>,
+          loader: () => fetch('http://localhost:5000/toy')
         },
         {
           path: 'mytoy',

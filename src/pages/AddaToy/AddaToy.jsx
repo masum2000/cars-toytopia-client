@@ -1,5 +1,5 @@
-import React from 'react';
 import { Helmet } from 'react-helmet';
+import Swal from 'sweetalert2';
 
 const AddaToy = () => {
 
@@ -32,6 +32,14 @@ const AddaToy = () => {
     .then(res => res.json())
     .then(data =>{
         console.log(data);
+        if(data.insertedId){
+            Swal.fire({
+                title: 'Success!',
+                text: 'Added a Toy Successfully.',
+                icon: 'success',
+                confirmButtonText: 'Ok'
+              })
+        }
     })
     }
 
@@ -149,7 +157,7 @@ const AddaToy = () => {
                         </label>
                     </div>
                 </div> */}
-                <input type="submit" value="Add Coffee" className=" btn-block border-2  border-orange-600 text-black p-1 rounded-lg bg-none font-bold py-2  hover:bg-orange-600 duration-300 hover:text-white" />
+                <input type="submit" value="Add A Toy" className=" btn-block border-2  border-orange-600 text-black p-1 rounded-lg bg-none font-bold py-2  hover:bg-orange-600 duration-300 hover:text-white" />
                
             </form>
         </div>
