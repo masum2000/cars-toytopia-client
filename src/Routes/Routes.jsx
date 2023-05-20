@@ -47,8 +47,9 @@ import UpdateToy from "../pages/UpdateToy/UpdateToy";
           element: <PrivateRoutes><AddaToy></AddaToy></PrivateRoutes>
         },
         {
-          path: 'updatetoy',
-          element: <UpdateToy></UpdateToy>
+          path: ':id',
+          element: <UpdateToy></UpdateToy>,
+          loader:({params})=> fetch(`http://localhost:5000/toy/${params.id}`)
         }
       ]
     },

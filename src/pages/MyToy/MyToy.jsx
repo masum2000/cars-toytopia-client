@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const MyToy = () => {
     const { user } = useContext(AuthContext);
@@ -113,10 +114,11 @@ const MyToy = () => {
                                 </td>
 
                                 <td className="py-4 whitespace-nowrap text-center">
+                                    <Link to={`/${toy._id}`}>
                                     <button className=" ">
                                         <img src="https://i.ibb.co/G08dvDK/edit-button.png" alt="" />
-
                                     </button>
+                                    </Link>
                                     <button onClick={() => handleDelete(toy._id)} className="ml-4 ">
                                         <img src="https://i.ibb.co/b1ngMDt/delete-button.png" alt="" />
                                     </button>
