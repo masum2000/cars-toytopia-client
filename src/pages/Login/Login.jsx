@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import {  GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
-import { toast } from 'react-hot-toast';
 import { ToastContainer } from 'react-toastify';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
@@ -14,10 +13,10 @@ const Login = () => {
     const { signIn } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from.pathname || '/';
     const auth = getAuth(app)
     const googleProvider = new GoogleAuthProvider();
-    // const githubProvider = new GithubAuthProvider();
+    
 
     const [user, setUser] = useState(null);
 
@@ -31,8 +30,7 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                // console.log(loggedUser);
-                // toast.success('Login successful');
+            
                 setUser(loggedUser);
                 Swal.fire({
                     title: 'Logged in Successful!',
@@ -40,9 +38,9 @@ const Login = () => {
                     icon: 'success',
                     confirmButtonText: 'Ok'
                   })
-                // toast.success('Login successful');
+                
                 form.reset();
-                navigate(from, { replace: true })
+                navigate(from, {replace: true })
             })
             .catch(error => {
                 console.log(error);
@@ -53,14 +51,20 @@ const Login = () => {
 
     const handleGoogleSignIn = (event) => {
         event.preventDefault();
-        // console.log('hello from google');
+    
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setUser(loggedUser)
-                navigate(from, { replace: true })
-                alert('User logged successfully')
+                navigate(from, {replace: true })
+                // alert('User logged successfully')
+                Swal.fire({
+                    title: 'Logged in Successful!',
+                    text: 'Welcome to Cars ToyTopia',
+                    icon: 'success',
+                    confirmButtonText: 'Ok'
+                  })
             })
             .catch(error => {
                 console.log('error', error.message);
@@ -68,19 +72,7 @@ const Login = () => {
     }
 
 
-    // const handleGithubSignIn = event => {
-    //     event.preventDefault();
-    //     signInWithPopup(auth, githubProvider)
-    //         .then(result => {
-    //             const loggedUser = result.user;
-    //             console.log(loggedUser);
-    //             setUser(loggedUser);
-    //             navigate(from, { replace: true })
-    //         })
-    //         .catch(error => {
-    //             console.log(error);
-    //         })
-    // }
+    
 
 
     return (
@@ -88,20 +80,8 @@ const Login = () => {
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>Cars ToyTopia/Login</title>
-            </Helmet>
-        <ToastContainer
-          position="top-right"
-          autoClose={2000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-      />
-      
+            </Helmet> 
+            
       <div className='my-16 md:my-20 md:w-10/12 w-11/12 mx-auto'>
           <div className="container mx-auto lg:flex lg:flex-row items-center md:p-16 py-8 rounded-3xl  shadow-2xl">
               <div className="md:w-1/2">
@@ -142,10 +122,6 @@ const Login = () => {
                                   <button onClick={handleGoogleSignIn}  className='px-4'>
                                       <img className='w-10' src="https://i.ibb.co/ftwyb00/Google-G-Logo-svg.png" alt="" />
                                   </button>
-                                  {/* <button onClick={handleGithubSignIn}  className='px-4'>
-                                      <img className='w-10' src="https://i.ibb.co/VxKN3Mg/github.png" alt="" />
-
-                                  </button> */}
                               </div>
                       <div>
                           <p className='text-sm'>New to <span className='font-semibold text-orange-500'>Cars ToyTopia</span> ?<Link to="/signup"><button className="btn btn-active btn-link normal-case text-sm text-sky-700 ">Registration Here</button>
