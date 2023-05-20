@@ -5,7 +5,7 @@ const AllToy = () => {
     const [toys, setToys] = useState([]);
     const [displayedToys, setDisplayedToys] = useState([]);
     const [search, setSearch] = useState('');
-    const [filteredToys, setFilteredToys] = useState([]);
+    const [showAll, setShowAll] = useState(false);
     
 
     useEffect(() => {
@@ -13,24 +13,33 @@ const AllToy = () => {
           const response = await fetch('http://localhost:5000/toy');
           const data = await response.json();
           setToys(data);
-          setDisplayedToys(data);
-          setFilteredToys(data); // Set initial filtered toys
+          setDisplayedToys(data.slice(0,20));
+           
         };
         fetchData();
       }, []);
 
-    const handleViewDetails = (toy) => {
-        setSelectedToy(toy);
-        setModalOpen(true);
-    };
+      useEffect(() => {
+        filterToys();
+      }, [search]);
 
-    const handleSearch = (e) => {
+      
+      const filterToys = () => {
+        const filtered = toys.filter(toy =>
+          toy.name.toLowerCase().includes(search.toLowerCase())
+        );
+        setDisplayedToys(filtered.slice(0, 20));
+        setShowAll(false);
+      };
+
+
+      const handleSeeMore = () => {
+        setDisplayedToys(toys);
+        setShowAll(true);
+      };
+
+      const handleSearch = e => {
         setSearch(e.target.value);
-    };
-
-    const handleSearchClick = () => {
-        const filtered = toys.filter(toy => toy.name.toLowerCase().includes(search.toLowerCase()));
-        setFilteredToys(filtered);
       };
 
    
@@ -49,15 +58,11 @@ const AllToy = () => {
                     placeholder="Search toys by name"
                     value={search}
                     onChange={handleSearch}
-                    className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
+                    className="px-4 py-2 border border-orange-500 rounded-md focus:outline-none border-2 focus:ring-1 focus:ring-orange-500 focus:border-orange-500"
                 />
-                <button
-                    onClick={handleSearchClick}
-                    type="submit"
-                    className="px-4 py-2 border border-gray-300 text-black  rounded-md bg-none   hover:bg-orange-600 duration-300 hover:text-white"
-                >
+                {/* <button  type="submit"  onClick={filterToys} className="px-4 py-2 border border-orange-500 text-black  rounded-md bg-none ring-1   hover:bg-orange-600 duration-300 hover:text-white">
                     Search
-                </button>
+                </button> */}
             </div>
             <div className="container mx-auto mb-32">
                 <table className="min-w-full divide-y divide-orange-600">
@@ -87,7 +92,7 @@ const AllToy = () => {
                         </tr>
                     </thead>
                     <tbody>
-                    {filteredToys.map((toy) => (
+                    {displayedToys.map(toy => (
                             <tr key={toy._id}>
                                 <td className="px-6 py-4 whitespace-nowrap">
                                  <img className="h-32 w-32 rounded-full" src={toy.photo} alt={toy.name}/>
@@ -110,7 +115,7 @@ const AllToy = () => {
                                 <td className="px-6 py-4 whitespace-nowrap">
                                     <button
                                         className="border-2 border-orange-500 text-black p-1 rounded-lg bg-none   hover:bg-orange-600 duration-300 hover:text-white"
-                                        onClick={() => handleViewDetails(toy)}
+                                        
                                     >
                                         View Details
                                     </button>
@@ -120,6 +125,20 @@ const AllToy = () => {
                     </tbody>
 
                 </table>
+
+                {!showAll && (
+          <div className="flex justify-center mt-4">
+            <button
+              onClick={handleSeeMore}
+              className="px-4 py-2 border border-orange-500 rounded-md bg-none border-2 hover:bg-orange-600 duration-300 hover:text-white"
+            >
+              See More
+            </button>
+          </div>
+        )}
+
+            
+
             </div>
            
         </div>
