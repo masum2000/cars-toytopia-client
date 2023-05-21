@@ -225,7 +225,7 @@ const Navbar = () => {
                             </div>
                         </>
                    ) : (
-                        <NavLink to="/login" activeClassName="bg-purple-500">
+                        <NavLink to="/login" className="">
                             <button className="  text-white rounded-md font-normal md:font-bold hover:bg-white hover:text-black hover:p-1 hover:rounded-md p-1">Login</button>
                         </NavLink>
                    )}

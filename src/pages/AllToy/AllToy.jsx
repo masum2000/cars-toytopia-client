@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import PrivateRoutes from '../../Routes/PrivateRoutes';
 
 
 const AllToy = () => {
@@ -48,12 +49,19 @@ const AllToy = () => {
         setSearch(e.target.value);
     };
 
-    const handleViewDetails = (toy) => {
-        if (!user) {
-          window.location.href = '/login';
-        } else {
+    // const handleViewDetails = (toy) => {
+    //     if (!user) {
+    //       window.location.href = '/login';
+    //     } else {
+    //       setSelectedToy(toy);
+    //     }
+    //   };
+
+    
+const handleViewDetails = (toy) => {
+    
           setSelectedToy(toy);
-        }
+        
       };
 
     
@@ -155,7 +163,8 @@ const AllToy = () => {
             </div>
             {/* when click the view details then open a modal  */}
             {selectedToy && (
-                <div className="fixed inset-0 flex items-center justify-center z-10">
+               <PrivateRoutes>
+                 <div className="fixed inset-0 flex items-center justify-center z-10">
                     <div className="bg-orange-200 w-1/2 rounded-lg p-4 ">
                         <h2 className="text-2xl font-bold mb-4">{selectedToy.name}</h2>
                         <p className="mb-2">{selectedToy.description}</p>
@@ -170,6 +179,7 @@ const AllToy = () => {
                         </button>
                     </div>
                 </div>
+               </PrivateRoutes>
             )}
 
         </div>

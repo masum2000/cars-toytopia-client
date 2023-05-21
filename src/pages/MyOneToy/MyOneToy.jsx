@@ -21,7 +21,7 @@ const MyOneToy = ({toy}) => {
         }).then((result) => {
             if (result.isConfirmed) {
              console.log('clicked confirm button');
-               fetch(`http://localhost:5000/dSingleToy/${_id}`,{
+               fetch(`https://cars-toytopia-server.vercel.app/dSingleToy/${_id}`,{
                 method: 'POST',
                })
                .then(res => res.json())

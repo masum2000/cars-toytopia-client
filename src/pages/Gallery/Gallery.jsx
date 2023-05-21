@@ -7,8 +7,8 @@ const Gallery = () => {
         Aos.init({duration: 2000});
       },[])
     return (
-        <div>
-            <div className="grid md:grid-cols-2  w-10/12  gap-10 py-16 container mx-auto items-center" data-aos="fade-left">
+        <div className="container w-10/12 mx-auto py-8 md:mt-10">
+            <div className="grid md:grid-cols-2  w-10/12  gap-10 py-16 container mx-auto items-center" data-aos="fade-top">
                 <div className="grid grid-cols-3  gap-4  ">
                     <div className='bg-orange-100 rounded-lg hover:bg-gray-500 hover:scale-105 transition-transform'>
                         <img src="https://i.ibb.co/F61Zsvj/10005-removebg-preview.png" alt="placeholder" className="w-full h-full object-cover rounded-lg cursor-pointer" />

@@ -65,7 +65,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Toy Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" defaultValue={name} placeholder="Toy Name" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="name" disabled defaultValue={name} placeholder="Toy Name" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -84,7 +84,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Seller Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="email" name="sellerEmail" defaultValue={sellerEmail} placeholder="Seller Email" className="input input-bordered w-full bg-gray-100" />
+                            <input type="email" name="sellerEmail" disabled defaultValue={sellerEmail} placeholder="Seller Email" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -92,7 +92,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Sub-Category</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="subCategory" defaultValue={subCategory} placeholder="Sub-Category" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="subCategory"  defaultValue={subCategory} placeholder="Sub-Category" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                 </div>
@@ -111,7 +111,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Sub-Category ID</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="subCategoryId" defaultValue={subCategoryId}  placeholder="Sub-Category ID" className="input input-bordered bg-gray-100 w-full" />
+                            <input type="text" name="subCategoryId" disabled defaultValue={subCategoryId}  placeholder="Sub-Category ID" className="input input-bordered bg-gray-100 w-full" />
                         </label>
                     </div>
                 </div>
@@ -129,7 +129,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Photo URL</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="photo" disabled defaultValue={photo} placeholder="Photo URL" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                 </div>
@@ -139,7 +139,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="rating" defaultValue={rating} placeholder="Rating" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="rating" disabled defaultValue={rating} placeholder="Rating" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
