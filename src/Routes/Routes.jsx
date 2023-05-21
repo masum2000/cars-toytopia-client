@@ -10,7 +10,7 @@ import MyToy from "../pages/MyToy/MyToy";
 import AddaToy from "../pages/AddaToy/AddaToy";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateToy from "../pages/UpdateToy/UpdateToy";
-import Details from "../pages/Home/Category/Details";
+
 
 
   const router = createBrowserRouter([

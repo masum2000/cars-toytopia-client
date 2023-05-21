@@ -59,7 +59,7 @@ const Category = ({ category }) => {
           <h2 className='text-xl font-bold text-orange-600'>{selectedToy && selectedToy.name}</h2>
           {selectedToy && (
             <>
-                <img className='' src={selectedToy.photo}></img>
+                <img className='w-28' src={selectedToy.photo}></img>
                 <p className="mb-2"><span className='font-bold'>Description:</span> {selectedToy.description}</p>
                 <p className="mb-2"><span className='font-bold'>Seller Name:</span> {selectedToy.sellerName}</p>
                 <p className="mb-2"><span className='font-bold'>Quantity:</span> {selectedToy.quantity}</p>

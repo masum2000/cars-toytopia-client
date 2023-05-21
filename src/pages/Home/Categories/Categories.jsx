@@ -30,7 +30,7 @@ const Categories = () => {
                 activeTab == "RegularCar" ? " bg-danger " : ""
               }`}
             >
-              <h2 className='font-bold border-2 border-orange-500 text-black p-1 rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Regular Car Toys</h2>
+              <h2 className='font-bold   text-black  rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Regular Car Toys</h2>
             </div>
             <div
               onClick={() => handleTabClick("PoliceCar")}
@@ -38,7 +38,7 @@ const Categories = () => {
                 activeTab == "PoliceCar" ? " bg-danger " : ""
               }`}
             >
-             <h2 className=' font-bold border-2 border-orange-500 text-black p-1 rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Police Car Toys</h2>
+             <h2 className=' font-bold  text-black  rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Police Car Toys</h2>
             </div>
             <div
               onClick={() => handleTabClick("TruckCar")}
@@ -46,7 +46,7 @@ const Categories = () => {
                 activeTab == "TruckCar" ? " bg-danger " : ""
               }`}
             >
-              <h2 className='font-bold border-2 border-orange-500 text-black p-1 rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Truck Car Toys</h2>
+              <h2 className='font-bold  text-black  rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Truck Car Toys</h2>
             </div>
           </div>
         </div>
