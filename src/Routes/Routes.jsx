@@ -10,6 +10,7 @@ import MyToy from "../pages/MyToy/MyToy";
 import AddaToy from "../pages/AddaToy/AddaToy";
 import PrivateRoutes from "./PrivateRoutes";
 import UpdateToy from "../pages/UpdateToy/UpdateToy";
+import Details from "../pages/Home/Category/Details";
 
 
   const router = createBrowserRouter([
@@ -50,7 +51,11 @@ import UpdateToy from "../pages/UpdateToy/UpdateToy";
           path: 'singleToy/:id',
           element: <UpdateToy></UpdateToy>,
           loader:({params})=> fetch(`https://cars-toytopia-server.vercel.app/singleToy/${params.id}`)
-        }
+        },
+        // {
+        //   path: 'details/:id',
+        //   element: <Details></Details>
+        // }
       ]
     },
     {

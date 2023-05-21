@@ -20,7 +20,7 @@ const Categories = () => {
     return (
         <div className='container mx-auto w-10/12'>
             
-      <h1 className="title text-center text-orange-500 text-3xl font-bold mt-5 p-5">Available Job's</h1>
+      <h1 className="title text-center text-orange-500 text-3xl font-bold mt-5 p-5">Categories of Toys</h1>
       <div className="tab-container text-center">
         <div className="text-center w-100 m-auto">
           <div className="  justify-content-center align-items-center">
@@ -30,7 +30,7 @@ const Categories = () => {
                 activeTab == "RegularCar" ? " bg-danger " : ""
               }`}
             >
-              Regular Car
+              <h2 className='font-bold border-2 border-orange-500 text-black p-1 rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Regular Car Toys</h2>
             </div>
             <div
               onClick={() => handleTabClick("PoliceCar")}
@@ -38,7 +38,7 @@ const Categories = () => {
                 activeTab == "PoliceCar" ? " bg-danger " : ""
               }`}
             >
-              Police Car
+             <h2 className=' font-bold border-2 border-orange-500 text-black p-1 rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Police Car Toys</h2>
             </div>
             <div
               onClick={() => handleTabClick("TruckCar")}
@@ -46,7 +46,7 @@ const Categories = () => {
                 activeTab == "TruckCar" ? " bg-danger " : ""
               }`}
             >
-             Truck Car
+              <h2 className='font-bold border-2 border-orange-500 text-black p-1 rounded-lg bg-none hover:bg-orange-600 duration-300 hover:text-white'>Truck Car Toys</h2>
             </div>
           </div>
         </div>

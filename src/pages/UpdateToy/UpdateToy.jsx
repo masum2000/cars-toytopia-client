@@ -92,7 +92,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Sub-Category</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="subCategory"  defaultValue={subCategory} placeholder="Sub-Category" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="subCategory"disabled  defaultValue={subCategory} placeholder="Sub-Category" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                 </div>
