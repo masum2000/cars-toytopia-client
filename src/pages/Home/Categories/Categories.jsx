@@ -3,11 +3,11 @@ import Category from '../Category/Category';
 
 const Categories = () => {
     const [categories, setCategories] = useState([]);
-    const [activeTab, setActiveTab] = useState("Regular Car");
+    const [activeTab, setActiveTab] = useState("RegularCar");
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/allCategory/${activeTab}`)
+        fetch(`https://cars-toytopia-server.vercel.app/allCategory/${activeTab}`)
         .then(res => res.json())
         .then(result => {
             setCategories(result);
@@ -19,31 +19,31 @@ const Categories = () => {
     }
     return (
         <div className='container mx-auto w-10/12'>
-            <h2>Category page</h2>
-      <h1 className="title text-center mt-5 p-5">Available Job's</h1>
+            
+      <h1 className="title text-center text-orange-500 text-3xl font-bold mt-5 p-5">Available Job's</h1>
       <div className="tab-container text-center">
         <div className="text-center w-100 m-auto">
           <div className="  justify-content-center align-items-center">
             <div
-              onClick={() => handleTabClick("Regular Car")}
-              className={`tab   Regular Car ${
-                activeTab == "Regular Car" ? " bg-danger " : ""
+              onClick={() => handleTabClick("RegularCar")}
+              className={`tab   RegularCar ${
+                activeTab == "RegularCar" ? " bg-danger " : ""
               }`}
             >
               Regular Car
             </div>
             <div
-              onClick={() => handleTabClick("Police Car")}
-              className={`tab   Police Car ${
-                activeTab == "Police Car" ? " bg-danger " : ""
+              onClick={() => handleTabClick("PoliceCar")}
+              className={`tab   PoliceCar ${
+                activeTab == "PoliceCar" ? " bg-danger " : ""
               }`}
             >
               Police Car
             </div>
             <div
-              onClick={() => handleTabClick("Truck Car")}
-              className={`tab   Truck Car ${
-                activeTab == "Truck Car" ? " bg-danger " : ""
+              onClick={() => handleTabClick("TruckCar")}
+              className={`tab   TruckCar ${
+                activeTab == "TruckCar" ? " bg-danger " : ""
               }`}
             >
              Truck Car

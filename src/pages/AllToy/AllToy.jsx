@@ -166,10 +166,11 @@ const handleViewDetails = (toy) => {
                <PrivateRoutes>
                  <div className="fixed inset-0 flex items-center justify-center z-10">
                     <div className="bg-orange-200 w-1/2 rounded-lg p-4 ">
+                        <img src={selectedToy.photo}></img>
                         <h2 className="text-2xl font-bold mb-4">{selectedToy.name}</h2>
                         <p className="mb-2">{selectedToy.description}</p>
-                        <p className="mb-2">Seller: {selectedToy.sellerName}</p>
-                        <p className="mb-2">Price: ${selectedToy.price}</p>
+                        <p className="mb-2"><span className='font-bold'>Seller:</span> {selectedToy.sellerName}</p>
+                        <p className="mb-2"><span className='font-bold'>Price:</span> ${selectedToy.price}</p>
                         {/* Add other details as needed */}
                         <button
                             className="px-4 py-2 border border-orange-500 rounded-md bg-none hover:bg-orange-600 duration-300 hover:text-white"
