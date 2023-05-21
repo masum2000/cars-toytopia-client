@@ -36,7 +36,7 @@ import UpdateToy from "../pages/UpdateToy/UpdateToy";
         {
           path: 'alltoy',
           element: <AllToy></AllToy>,
-          loader: () => fetch('http://localhost:5000/toy')
+          loader: () => fetch('https://cars-toytopia-server.vercel.app/toy')
         },
         {
           path: 'mytoy',
@@ -47,9 +47,9 @@ import UpdateToy from "../pages/UpdateToy/UpdateToy";
           element: <PrivateRoutes><AddaToy></AddaToy></PrivateRoutes>
         },
         {
-          path: ':id',
+          path: 'singleToy/:id',
           element: <UpdateToy></UpdateToy>,
-          loader:({params})=> fetch(`http://localhost:5000/toy/${params.id}`)
+          loader:({params})=> fetch(`https://cars-toytopia-server.vercel.app/singleToy/${params.id}`)
         }
       ]
     },

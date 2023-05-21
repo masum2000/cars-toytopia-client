@@ -1,52 +1,57 @@
 import { useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { useLoaderData } from 'react-router-dom';
+import MyOneToy from '../MyOneToy/MyOneToy';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 
 const MyToy = () => {
+
+   const toys = useLoaderData()
+
     const { user } = useContext(AuthContext);
     const [myToy, setMyToy] = useState([]);
 
-    const url = `http://localhost:5000/myToy?sellerEmail=${user.email}`;
+    const url = `https://cars-toytopia-server.vercel.app/myToy?sellerEmail=${user.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
             .then(data => setMyToy(data))
     }, [])
 
-    const handleDelete = _id => {
-        console.log(_id);
+    // const handleDelete = _id => {
+    //     console.log(_id);
 
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
+    //     Swal.fire({
+    //         title: 'Are you sure?',
+    //         text: "You won't be able to revert this!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, delete it!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/toy/${_id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        if (data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your toy has been deleted.',
-                                'success'
-                            )
-                        }
-                    })
+    //             fetch(`https://cars-toytopia-server.vercel.app//toy/${_id}`, {
+    //                 method: 'DELETE'
+    //             })
+    //                 .then(res => res.json())
+    //                 .then(data => {
+    //                     console.log(data);
+    //                     if (data.deletedCount > 0) {
+    //                         Swal.fire(
+    //                             'Deleted!',
+    //                             'Your toy has been deleted.',
+    //                             'success'
+    //                         )
+    //                     }
+    //                 })
 
-            }
-        })
-    }
+    //         }
+    //     })
+    // }
 
 
     return (
@@ -64,6 +69,44 @@ const MyToy = () => {
             </div>
 
             <div className="container md:overflow-hidden overflow-scroll mx-auto mb-32">
+                <table className="min-w-full divide-y  divide-orange-600">
+                    <thead>
+                        <tr>
+                            <th className="px-6 py-3 text-center text-xs font-bold uppercase tracking-wider">
+                                photo
+                            </th>
+                            <th className="px-6 py-3  text-xs text-center font-bold  uppercase tracking-wider">
+                                Toy Name
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-bold  uppercase tracking-wider">
+                                Seller Name
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">
+                                Price
+                            </th>
+                            <th className="px-6 py-3 text-left text-xs font-bold uppercase tracking-wider">
+                                Sub-category
+                            </th>
+                            <th className="px-6 py-3  text-xs text-center font-bold  uppercase tracking-wider">
+                                Available Quantity
+                            </th>
+
+                            <th className="px-6 py-3 text-center text-xs font-bold  uppercase tracking-wider">
+                                Update/Delete
+                            </th>
+                        </tr>
+                    </thead>
+                    </table>
+                    </div>
+
+            {
+                myToy.map((toy) => <MyOneToy
+                key={toy._id}
+                toy={toy}
+                ></MyOneToy>)
+            }
+
+            {/* <div className="container md:overflow-hidden overflow-scroll mx-auto mb-32">
                 <table className="min-w-full divide-y  divide-orange-600">
                     <thead>
                         <tr>
@@ -128,7 +171,7 @@ const MyToy = () => {
                     </tbody>
                 </table>
 
-            </div>
+            </div> */}
 
 
 

@@ -22,7 +22,7 @@ const AddaToy = () => {
        console.log(newToy);
 
     //    send data to the server
-    fetch('http://localhost:5000/toy', {
+    fetch('https://cars-toytopia-server.vercel.app//toy', {
         method: 'POST',
         headers: {
             'content-type': 'application/json'

@@ -14,7 +14,7 @@ const AllToy = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('http://localhost:5000/toy');
+            const response = await fetch('https://cars-toytopia-server.vercel.app/toy');
             const data = await response.json();
             setToys(data);
             setDisplayedToys(data.slice(0, 20));

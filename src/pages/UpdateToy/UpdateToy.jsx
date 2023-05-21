@@ -11,8 +11,9 @@ const UpdateToy = () => {
         event.preventDefault(); 
  
         const form = event.target;
- 
+   
         const name = form.name.value;
+        console.log(name);
         const sellerName = form.sellerName.value;
         const sellerEmail = form.sellerEmail.value;
         const subCategory = form.subCategory.value;
@@ -26,7 +27,7 @@ const UpdateToy = () => {
         console.log(updatedToy);
  
      //    send data to the server 
-     fetch(`http://localhost:5000/toy/${_id}`, {
+     fetch(`https://cars-toytopia-server.vercel.app/singleToy/${_id}`, {
          method: 'PUT',
          headers: {
              'content-type': 'application/json'
@@ -36,7 +37,7 @@ const UpdateToy = () => {
      .then(res => res.json())
      .then(data =>{
          console.log(data);
-         if(data.insertedId){
+         if(data.modifiedCount > 0){
              Swal.fire({
                  title: 'Success!',
                  text: 'Toy Updated Successfully.',
@@ -57,14 +58,14 @@ const UpdateToy = () => {
 
             <div className=" md:p-24 p-10">
             <h2 className="md:text-5xl text-3xl text-orange-600  text-center font-bold mb-6">Update: {name}</h2>
-            <form onClick={handleUpdateToy}>
+            <form onSubmit={handleUpdateToy}>
                 <div className="md:flex mb-6">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text font-bold">Toy Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" value={name} placeholder="Toy Name" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="name" defaultValue={name} placeholder="Toy Name" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -72,7 +73,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Seller Name</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="sellerName" value={sellerName} placeholder="Seller Name" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="sellerName" disabled defaultValue={sellerName} placeholder="Seller Name" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                 </div>
@@ -83,7 +84,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Seller Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="email" name="sellerEmail" value={sellerEmail} placeholder="Seller Email" className="input input-bordered w-full bg-gray-100" />
+                            <input type="email" name="sellerEmail" defaultValue={sellerEmail} placeholder="Seller Email" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -91,7 +92,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Sub-Category</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="subCategory" value={subCategory} placeholder="Sub-Category" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="subCategory" defaultValue={subCategory} placeholder="Sub-Category" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                 </div>
@@ -110,7 +111,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Sub-Category ID</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="subCategoryId" value={subCategoryId}  placeholder="Sub-Category ID" className="input input-bordered bg-gray-100 w-full" />
+                            <input type="text" name="subCategoryId" defaultValue={subCategoryId}  placeholder="Sub-Category ID" className="input input-bordered bg-gray-100 w-full" />
                         </label>
                     </div>
                 </div>
@@ -128,7 +129,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Photo URL</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" value={photo} placeholder="Photo URL" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="photo" defaultValue={photo} placeholder="Photo URL" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                 </div>
@@ -138,7 +139,7 @@ const UpdateToy = () => {
                             <span className="label-text font-bold">Rating</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="rating" value={rating} placeholder="Rating" className="input input-bordered w-full bg-gray-100" />
+                            <input type="text" name="rating" defaultValue={rating} placeholder="Rating" className="input input-bordered w-full bg-gray-100" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
